@@ -173,6 +173,7 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         return ((user.amount * accDespairPerShare) /  1e18) - user.rewardDebt;
     }
 
+
     // Update reward variables for all pools. Be careful of gas spending!
     function massUpdatePools() public {
         uint256 length = poolInfo.length;
@@ -300,10 +301,20 @@ contract MasterChefV2 is Ownable, ReentrancyGuard {
         emit SetFeeAddress(msg.sender, _feeAddress);
     }
 
+    // Update lastRewardBlock variables for all pools.
+    function _massUpdateLastRewardBlockPools() internal {
+        uint256 length = poolInfo.length;
+        for (uint256 _pid = 0; _pid < length; ++_pid) {
+            poolInfo[_pid].lastRewardBlock = startBlock;
+        }
+    }
+
     function setStartBlock(uint256 _newStartBlock) external onlyOwner {
         require(block.number < startBlock, "cannot change start block if sale has already commenced");
         require(block.number < _newStartBlock, "cannot set start block in the past");
+                
         startBlock = _newStartBlock;
+        _massUpdateLastRewardBlockPools();
 
         emit SetStartBlock(startBlock);
     }
