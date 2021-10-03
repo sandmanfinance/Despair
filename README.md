@@ -18,8 +18,8 @@ Please enter any of our dreamed sites and start farming, playing with NFT and ea
 
 |Contract     | PolygonScan Address       |
 |-------------|---------------------------|
-|Delirium Token|TBA           |
-|MasterChef   |TBA            |
-|TimeLock     |TBA            |
+|Despair Token|0x898F53e0365b3e8114227Df4E811766afCA960b8           |
+|MasterChef   |0x5128D5C33fFd0c66e5C696cc66168C8D39604645            |
+|TimeLock     |0x9fc7587Af1ddaD625223FF0d6E017A3cbBB08f75            |
 
 HAPPY FARMING & Dream a Little Dream of Despair Farm.
